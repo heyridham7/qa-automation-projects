@@ -1,18 +1,10 @@
 import pytest
-from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
-from webdriver_manager.chrome import ChromeDriverManager
 import sys
 sys.path.append("..")
 import time
 from pages.login_page import LoginPage
 
 @pytest.fixture
-
-def driver():
-    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
-    yield driver
-    driver.quit()
 
 def test_valid_login(driver):
     page = LoginPage(driver)

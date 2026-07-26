@@ -1,18 +1,10 @@
 
 import pytest
-from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
-from webdriver_manager.chrome import ChromeDriverManager
 import sys
 sys.path.append("..")
 from pages.books import BooksPage
 
 @pytest.fixture
-def driver():
-    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
-    yield driver
-    driver.quit()
-
 def test_title(driver):
     page = BooksPage(driver)
     page.open()
